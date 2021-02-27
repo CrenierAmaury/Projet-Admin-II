@@ -1,0 +1,13 @@
+services :
+  dns:
+    image: monimagedockerhub:latest
+    container_name: dns
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./conf/named.conf:/etc/bind/named.conf
+      - ./conf/named.conf.options:/etc/bind/named.conf.options
+      - ./conf/named.conf.default-zones:/etc/bind/named.conf.default-zones
+      - ./conf/named.conf.local:/etc/bind/named.conf.local
+      - ./conf/db.l2-7.ephec-ti.be:/etc/bind/db.l2-7.ephec-ti.be
