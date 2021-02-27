@@ -1,0 +1,4 @@
+zone wt {
+    type master;
+    file "/etc/bind/zones/db.nagoya-foundation.com";
+};
