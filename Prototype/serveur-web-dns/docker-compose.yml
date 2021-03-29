@@ -1,0 +1,58 @@
+services :
+  dns:
+    image: monimagedockerhub:latest
+    container_name: dns
+    restart: always
+    networks:
+      vps:
+        ipv4_address:
+
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./conf/named.conf.options:/etc/bind/named.conf.options
+      - ./conf/named.conf.default-zones:/etc/bind/named.conf.default-zones
+      - ./conf/named.conf.local:/etc/bind/named.conf.local
+      - ./conf/db.l2-7.ephec-ti.be:/etc/bind/db.l2-7.ephec-ti.be
+
+  web:
+    image: monimagedockerhub:latest
+    container_name: web
+    restart: always
+    networks:
+      db-web:
+        ipv4_address:
+      vps:
+        ipv4_address:
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+
+    links:
+      - db
+
+  db:
+    image: monimagedockerhub:latest
+    container_name: db
+    restart: always
+    networks:
+      db-web:
+        ipv4_address:
+    volumes:
+
+networks:
+  vps:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 25
+
+  db-web:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: /29
