@@ -22,3 +22,9 @@ CREATE TABLE `virtual_aliases` (
   PRIMARY KEY (`id`),
   FOREIGN KEY (domain_id) REFERENCES virtual_domains(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO mailserver.virtual_domains (name) VALUES ('l2-7.ephec-ti.be');
+
+INSERT INTO mailserver.virtual_users (domain_id, password , email) VALUES ('1', 'user1234', 'directeur@l2-7.ephec-ti.be'), ('2', 'user1234', 'secretariat@l2-7.ephec-ti.be'), ('3', 'user1234', 'robin@l2-7.ephec-ti.be');
+
+INSERT INTO mailserver.virtual_aliases (domain_id, source, destination) VALUES ('1', 'robin@l2-7.ephec-ti.be', 'robin@l2-7.ephec-ti.be');
