@@ -1,6 +1,6 @@
 services :
   dns:
-    image: monimagedockerhub
+    image: he201706/dns
     container_name: dns
     ports:
       - "53:53/tcp"

@@ -9,3 +9,6 @@ $TTL	604800
 @			    IN	NS			ns.l2-7.ephec-ti.be.
 ns				IN	A				135.125.101.233
 www             IN  A               135.125.101.233
+
+@                    MX          10              l2-7.ephec.ti.be.
+Mail                 A     51.210.42.26

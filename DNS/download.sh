@@ -2,7 +2,7 @@
 
 mkdir conf
 
-curl -o docker-compose.yml https://github.com/CrenierAmaury/Projet-Admin-II/blob/main/DNS/docker-compose.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/DNS/docker-compose.yml
 
 curl -o conf/named.conf.default-zones https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/DNS/conf/named.conf.default-zones
 curl -o conf/named.conf.local https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/DNS/conf/named.conf.local
