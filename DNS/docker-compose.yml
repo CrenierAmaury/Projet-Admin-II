@@ -1,3 +1,5 @@
+version: "3"
+
 services:
   soa:
     image: he201706/dns:latest
