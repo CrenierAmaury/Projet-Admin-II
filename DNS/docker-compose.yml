@@ -4,6 +4,10 @@ services:
   soa:
     image: he201706/dns:latest
     container_name: soa
+    restart: always
+    networks:
+      serveur:
+        ipv4_address: 172.16.0.2
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -13,3 +17,11 @@ services:
       - ./conf/named.conf.default-zones:/etc/bind/named.conf.default-zones
       - ./conf/named.conf.local:/etc/bind/named.conf.local
       - ./conf/db.l2-7.ephec-ti.be:/etc/bind/db.l2-7.ephec-ti.be
+
+networks:
+  serveur:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/24

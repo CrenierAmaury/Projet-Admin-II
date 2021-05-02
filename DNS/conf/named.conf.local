@@ -1,4 +1,9 @@
-zone "l2-7.ephec-ti.be" {
-    type master;
-    file "/etc/bind/zones/db.l2-7.ephec-ti.be";
-};
+view external {
+    match-clients {
+        any;
+    }
+    zone "l2-7.ephec-ti.be" {
+         type master;
+         file "/etc/bind/zones/db.l2-7.ephec-ti.be";
+     };
+}
