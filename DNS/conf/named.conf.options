@@ -1,8 +1,6 @@
 options {
     directory "/var/cache/bind";
 
-    recursion yes;
-
     listen-on {
         any;
     };
@@ -12,7 +10,6 @@ options {
     };
 
     forwarders {
-        8.8.8.8;
-        8.8.4.4;
+        0.0.0.0
     };
 };

@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt-get update && apt-get install -y bind9
+RUN apt-get -y update && apt-get install -y bind9
 
 WORKDIR /etc/bind
 
