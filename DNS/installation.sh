@@ -9,4 +9,4 @@ chmod +x download.sh
 
 ./download.sh
 
-docker-compose up -d
+docker-compose up

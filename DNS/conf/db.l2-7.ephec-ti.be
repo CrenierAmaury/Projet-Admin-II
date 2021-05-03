@@ -7,7 +7,7 @@ $TTL	604800
 			  604800 )	; Negative Cache TTL
 ;
 @		        IN	   NS		       ns.l2-7.ephec-ti.be.
-@               IN     MX      10      mail
+@               IN     MX      10      mail.l2-7.ephec-ti.be.
 
 ns	            IN	   A	           135.125.101.233
 www             IN     A               135.125.101.233
