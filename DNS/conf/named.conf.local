@@ -6,4 +6,4 @@ view external {
          type master;
          file "/etc/bind/zones/db.l2-7.ephec-ti.be";
      };
-}
+};
