@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:bionic
 
 RUN apt-get -y update && apt-get install -y bind9
 
