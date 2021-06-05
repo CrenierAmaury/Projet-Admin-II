@@ -1,5 +1,5 @@
 user = mailuser
 password = user1234
-hosts = 127.0.0.1
+hosts = 51.210.42.26
 dbname = mailserver
 query = SELECT destination FROM virtual_aliases WHERE source='%s'
