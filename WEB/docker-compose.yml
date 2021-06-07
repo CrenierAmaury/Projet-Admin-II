@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  soa:
+    image: he201706/web:latest
+    container_name: soa
+    restart: always
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./woody-toys-vitrine/index.html:/usr/share/nginx/html/index.html

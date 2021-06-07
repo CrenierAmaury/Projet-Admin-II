@@ -1,6 +1,6 @@
 FROM store/internetsystemsconsortium/bind9:9.16
 
-RUN apt-get -y update && apt-get install -y bind9
+RUN apt-get -y update
 
 WORKDIR /etc/bind
 

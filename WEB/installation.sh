@@ -1,6 +1,6 @@
 #!/bin/sh
 
-docker pull monimage
+docker pull he201706/web
 
 mkdir web
 cd web
@@ -9,4 +9,4 @@ chmod +x download.sh
 
 ./download.sh
 
-docker-compose up
+docker-compose up -d
