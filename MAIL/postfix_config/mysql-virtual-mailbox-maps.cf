@@ -1,5 +1,5 @@
-user = mailuser
-password = user1234
-hosts = 51.210.42.26
-dbname = mailserver
+user = ***
+password = ***
+hosts = ***
+dbname = ***
 query = SELECT 1 FROM virtual_users WHERE email='%s'
