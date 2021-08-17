@@ -20,4 +20,9 @@ curl -o sites/b2b/index.php https://raw.githubusercontent.com/CrenierAmaury/Proj
 
 curl -o sites/nginx.conf https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/WEB/nginx.conf
 
+cd ../db
+mkdir scripts
+
+curl -o scripts/test.sql https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/DB/test.sql
+
 cd ..

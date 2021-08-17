@@ -1,126 +1,69 @@
-<!-- Fichier .php concernant le site b2b de WoodyToys -->
-<!-- le site nous permet de récupérer les données de la base de données MySQL et également l'ajout de données dans celle-ci -->
+<?php
 
-<!DOCTYPE html>
+$hostname="135.125.101.233";
+$user = "b2b";
+$password = "user1234";
+$database = "example_database";
+$table = "todo_list";
+?>
+
 <html>
 <head>
-<meta charset='utf-8'>
-<title> Site B2B l1-2 - Config WEB</title>
-		<style>
-			body {
-				background-color: #FFD79E;
-			}
-			p {
-				text-align: center;
-			}
-			table {
-				margin-right:auto;
-				margin-left: auto;
-				margin-top: 50px;
-				align: center;
-			}
-			tr, td {
-				padding: 3px 6px 3px 6px;
-			}
-			form {
-				margin-top: 10px
-				margin-left: 30px;
-			}
-			.button {
-				border:0.16em solid black;
- 				border-radius:10px;
-				text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
- 				text-align:center;
-			}
-		</style>
+<title>Test PHP</title>
 </head>
-
 <body>
-	<h1>Bienvenue sur le site B2B l2-7</h1>
-	<p>Output : données de la base de données</p><br><br>
-	<span><strong>Formulaire d'encodage</strong></span><br/><br/>
+<p>Bonjour, bienvue dans B2B</p>
+
+<form method="post" action="index.php">
+  Name: <input type="text" name="name" required>
+  <input type="submit" name="submit">
+</form>
 
 
-	<form method="post" action="index.php">
-	  <strong>ARTICLE:</strong> <input type="text" name="article" id="article" required>
-	  <br><br>
-	  <strong>DESCRIPTION:</strong> <textarea type="text" name="description" id="description" rows="3" cols="40" required></textarea>
-	  <br><br>
-	  <strong>PRIX: </strong><input type="number" name="prix" id="prix" min="0.01" value="0.00" step=".01" required>
-	  <br><br>
-	  <input class="button" type="submit" name="submit" value="Submit">
-	</form>
+<?php
+ try {
+    $db = new PDO("mysql:host=$hostname;dbname=$database", $user, $password);
+    echo "<h2>TODO</h2><ol>";
+    foreach($db->query("SELECT content FROM $table") as $row) {
+      echo "<li>" . $row['content'] . "</li>";
+    }
+    echo "</ol>";
+  } catch (PDOException $e) {
+      print "Error!: " . $e->getMessage() . "<br/>";
+      die();
+  }
 
-	<?php
+ echo '</body>';
+ echo '</html>';
 
-        $article = htmlentities($_POST["article"]);
-        $description =htmlentities($_POST["description"]);
-        $prix =htmlentities($_POST["prix"]);
-        $prix_float =htmlentities(floatval($prix));
+ ?>
 
-        if( isset($_POST['submit'])) {
-                try {
-                  $conn = new PDO('mysql:host=172.17.0.3;dbname=b2b','directeur','azerty');
-                  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ <?php
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is comming from a form
 
-                  $sql = "INSERT INTO b2bboutique (ARTICLE, DESCRIPTION, PRIX)
-                  VALUES ('$article', '$description', $prix_float)";
+ 	$name = filter_var($_POST["name"], FILTER_SANITIZE_STRING); //set PHP variables like this so we can use them anywhere in code below
 
-                  $conn->exec($sql);
-                  echo "New record created successfully";
-                }
+ 	if (empty($name)){
+ 		die("Please enter your name");
+ 	}
 
-                catch(PDOException $e) {
-                        echo $sql . "<br>" . $e->getMessage();
-                }
-                $conn = null;
-        }
-	?>
+ 	//Open a new connection to the MySQL server
+ 	//see https://www.sanwebe.com/2013/03/basic-php-mysqli-usage for more info
+ 	$mysqli = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_database);
 
+ 	//Output any connection error
+ 	if ($mysqli->connect_error) {
+ 		die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
+ 	}
 
+ 	$statement = $mysqli->prepare('INSERT INTO todo_list (content) VALUES(?)'); //prepare sql insert query
+ 	//bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
+ 	$statement->bind_param('s', $name); //bind values and execute insert query
 
-	 <?php
-				$query ='SELECT * FROM b2bboutique;';
-				try
-				{
-					$db = new PDO('mysql:host=172.17.0.3;dbname=b2b','directeur','azerty');
-					$answer = $db->query($query);
-
-					$output = "<table>";
-					foreach(($answer->fetchAll(PDO::FETCH_ASSOC)) as $key => $var) {
-						//$output .= '<tr>';
-						if($key===0) {
-							$output .= '<tr>';
-							foreach($var as $col => $val) {
-								$output .= "<td><strong>" . $col . '</strong></td>';
-							}
-							$output .= '</tr>';
-							foreach($var as $col => $val) {
-								$output .= '<td>' . $val . '</td>';
-							}
-							$output .= '</tr>';
-						}
-						else {
-							$output .= '<tr>';
-							foreach($var as $col => $val) {
-								$output .= '<td>' . $val . '</td>';
-							}
-							$output .= '</tr>';
-						}
-					}
-					$output .= '</table>';
-					echo $output;
-
-					$db = null;
-				}
-
-				catch (PDOException $e) {
-					print "Erreur !: " . $e->getMessage() . "<br/>";
-					die();
-				}
-				echo '<hr><br>';?>
-
-
-
-</body>
-</html>
+ 	if($statement->execute()){
+ 		print "success";
+ 	}else{
+ 		print $mysqli->error; //show mysql error if any
+ 	}
+ }
+ ?>

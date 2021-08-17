@@ -1,6 +1,6 @@
 #!/bin/sh
 
-docker pull monimage
+docker pull he201706/db
 
 mkdir db
 cd db
