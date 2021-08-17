@@ -16,4 +16,4 @@ services :
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: mailserver
       MYSQL_USER: mailuser
-      MYSQL_PASSWORD: user1234
+      MYSQL_PASSWORD: ****
