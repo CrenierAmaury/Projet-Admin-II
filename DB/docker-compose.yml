@@ -9,4 +9,4 @@ services:
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: user1234
     volumes:
-      - ./db/scripts/test.sql:/test.sql
+      - ./scripts/test.sql:/test.sql

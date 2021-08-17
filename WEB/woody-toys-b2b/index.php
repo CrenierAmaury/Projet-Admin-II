@@ -1,9 +1,9 @@
 <?php
 
-$hostname="135.125.101.233";
+$hostname="135.125.101.233:3306";
 $user = "b2b";
 $password = "user1234";
-$database = "example_database";
+$database = "b2b_db";
 $table = "todo_list";
 ?>
 
