@@ -2,6 +2,7 @@
 
 docker pull he201706/dns
 docker pull he201706/web
+docker pull he201706/php
 
 mkdir dns
 mkdir web

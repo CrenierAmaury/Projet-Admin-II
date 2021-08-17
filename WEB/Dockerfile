@@ -2,4 +2,5 @@ FROM nginx:latest
 
 RUN apt-get update
 
-EXPOSE 80
+RUN mkdir /usr/share/nginx/html/www
+RUN mkdir /usr/share/nginx/html/b2b

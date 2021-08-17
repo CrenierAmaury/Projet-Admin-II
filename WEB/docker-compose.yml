@@ -8,4 +8,13 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./woody-toys-vitrine/index.html:/usr/share/nginx/html/index.html
+      - ./sites/www/index.html:/usr/share/nginx/html/www/index.html
+      - ./sites/b2b/index.php:/usr/share/nginx/html/b2b/index.php
+      - ./sites/nginx.conf:/etc/nginx/nginx.conf
+
+  php:
+    image: he201706/php:latest
+    container_name: php
+    restart: always
+    volumes:
+      - ./sites/b2b/index.php:/usr/share/nginx/html/b2b/index.php

@@ -21,4 +21,13 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./web/sites/index.html:/usr/share/nginx/html/index.html
+      - ./web/sites/www/index.html:/usr/share/nginx/html/www/index.html
+      - ./web/sites/b2b/index.php:/usr/share/nginx/html/b2b/index.php
+      - ./web/sites/nginx.conf:/etc/nginx/nginx.conf
+
+  php:
+    image: he201706/php:latest
+    container_name: php
+    restart: always
+    volumes:
+      - ./web/sites/b2b/index.php:/usr/share/nginx/html/b2b/index.php

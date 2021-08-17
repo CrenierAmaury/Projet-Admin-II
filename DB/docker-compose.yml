@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+  db:
+    image: he201706/db:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
