@@ -5,7 +5,6 @@ services:
     image: he201706/dns:latest
     container_name: soa
     restart: always
-    command: ["chmod a+x /etc/bind/dnssec_key.sh", "/etc/bind/dnssec_key.sh", "rm /etc/bind/dnssec_key.sh"]
     ports:
       - "53:53/tcp"
       - "53:53/udp"
