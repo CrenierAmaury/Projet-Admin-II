@@ -11,7 +11,7 @@ services :
     restart: always
     networks:
       Direction:
-        ipv4_address: 172.16.1.1
+        ipv4_address: 172.16.1.2
 
   Secretaire:
     image: castermanerobin/posteuserinterne:latest
@@ -23,7 +23,7 @@ services :
     restart: always
     networks:
       Direction:
-        ipv4_address: 172.16.1.2
+        ipv4_address: 172.16.1.3
 
   comptable1:
     image: castermanerobin/posteuserinterne:latest
@@ -35,7 +35,7 @@ services :
     restart: always
     networks:
       Administration:
-        ipv4_address: 172.16.3.1
+        ipv4_address: 172.16.3.2
 
   comptable2:
     image: castermanerobin/posteuserinterne:latest
@@ -47,7 +47,7 @@ services :
     restart: always
     networks:
       Administration:
-        ipv4_address: 172.16.3.2
+        ipv4_address: 172.16.3.3
 
   Commercial1:
     image: castermanerobin/posteuserinterne:latest
@@ -59,7 +59,7 @@ services :
     restart: always
     networks:
       Administration:
-        ipv4_address: 172.16.3.1
+        ipv4_address: 172.16.3.4
 
   Commercial2:
     image: castermanerobin/posteuserinterne:latest
@@ -71,7 +71,7 @@ services :
     restart: always
     networks:
       Administration:
-        ipv4_address: 172.16.3.4
+        ipv4_address: 172.16.3.5
 
   Atelier1:
     image: castermanerobin/posteuserinterne:latest
@@ -83,7 +83,7 @@ services :
     restart: always
     networks:
       Atelier:
-        ipv4_address: 172.16.2.1
+        ipv4_address: 172.16.2.2
 
   Atelier2:
     image: castermanerobin/posteuserinterne:latest
@@ -95,7 +95,7 @@ services :
     restart: always
     networks:
       Atelier:
-        ipv4_address: 172.16.2.2
+        ipv4_address: 172.16.2.3
 
 networks:
   Direction:
