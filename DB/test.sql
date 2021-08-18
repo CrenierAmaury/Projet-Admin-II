@@ -1,10 +1,4 @@
-USE b2b_db;
-CREATE TABLE IF NOT EXISTS web_db.todo_list;
+CREATE TABLE jouets (id INTEGER NOT NULL AUTO_INCREMENT, nom varchar(40) NOT NULL, prix INTEGER NOT NULL, CONSTRAINT pk_jouets PRIMARY KEY(id));
 
-CREATE TABLE web_db.todo_list (
-    id INT AUTO_INCREMENT,
-    content VARCHAR(200),
-    PRIMARY KEY(id)
-);
-
-INSERT INTO web_db.todo_list (content) VALUES ("My first important item");
+INSERT INTO jouets (nom, prix)
+VALUE ('cheval', 10), ('voiture', 15), ('puissance 4', 25);

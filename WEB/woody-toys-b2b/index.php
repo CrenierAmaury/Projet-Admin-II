@@ -2,7 +2,7 @@
 
 <?php
     # Connexion à la base de données
-    $db= mysqli_connect('127.0.0.1:3306','****','****','****') or die('Erreur de connection!');
+    $db= mysqli_connect('135.125.101.233:3306','****','****','****') or die('Erreur de connection!');
 ?>
 
 <html>
