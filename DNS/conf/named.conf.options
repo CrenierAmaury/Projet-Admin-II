@@ -7,10 +7,5 @@ options {
 
     recursion no;
 
-    additional-from-cache no;
-    additional-from-auth no;
-
     dnssec-enable yes;
-    dnssec-validation yes;
-    dnssec-lookaside auto;
 };
