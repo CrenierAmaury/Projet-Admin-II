@@ -14,6 +14,12 @@ RUN apt-get install -y curl
 
 RUN apt-get update
 
+# Mut pour le Mail
+RUN apt-get install -y \
+    msmtp \
+    mutt \
+    vim
+
 # Test de connexion avec d'autre machine, ifconfig, netstat, nameid, route, etc. 
 RUN apt-get install -y telnet
 RUN apt-get install -y net-tools
