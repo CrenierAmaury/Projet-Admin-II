@@ -1,6 +1,6 @@
 <?php
 
-$hostname="135.125.101.233:3306";
+$hostname="135.125.101.233";
 $user = "b2b";
 $password = "user1234";
 $database = "b2b_db";
