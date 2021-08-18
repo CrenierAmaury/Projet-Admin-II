@@ -1,69 +1,59 @@
-<?php
+# Page html/php du site dynamique de WoodyToys.
 
-$hostname="135.125.101.233";
-$user = "b2b";
-$password = "user1234";
-$database = "b2b_db";
-$table = "todo_list";
+<?php
+    # Connexion à la base de données
+    $db= mysqli_connect('127.0.0.1:3306','****','****','****') or die('Erreur de connection!');
 ?>
 
 <html>
-<head>
-<title>Test PHP</title>
-</head>
-<body>
-<p>Bonjour, bienvue dans B2B</p>
+  <head>
+    <meta charset = "UTF-8">
+    <title>B2B WoddyToys</title>
+  </head>
 
-<form method="post" action="index.php">
-  Name: <input type="text" name="name" required>
-  <input type="submit" name="submit">
-</form>
+  <body>
+    <h1>Site Web B2B WoddyToys</h1>
 
+    <?php
+        $query = "SELECT * FROM jouets";             # Directive sql permettant de séléctionner tous les éléments de la table "jouets".
+        mysqli_query($db, $query) or die('erreur');
+        $affichage = mysqli_query($db, $query);
 
-<?php
- try {
-    $db = new PDO("mysql:host=$hostname;dbname=$database", $user, $password);
-    echo "<h2>TODO</h2><ol>";
-    foreach($db->query("SELECT content FROM $table") as $row) {
-      echo "<li>" . $row['content'] . "</li>";
-    }
-    echo "</ol>";
-  } catch (PDOException $e) {
-      print "Error!: " . $e->getMessage() . "<br/>";
-      die();
-  }
+	# Boucle permettant l'affichage en "liste" des différents jouets présents dans la base de données.
+        while ($row = mysqli_fetch_array($affichage)) {
+            echo $row['id'] . ': ' . $row['nom'] . ' ' . $row['prix'] . ' <br />';
+        }
 
- echo '</body>';
- echo '</html>';
+	# Condition permettant lors du "submit" du boutton du formulaire html en dessous, d'envoyer les données rentrées dans ce formulaire dans la base de données.
+        if (isset($_POST['submit'])) {
 
- ?>
+        $nom = $_POST["nom"];      # Définit les variables en fonction des valeurs rentrées pour nom et prix dans le formulaire avec la méthode POST.
+	$prix = $_POST["prix"];
 
- <?php
- if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is comming from a form
+        $sql = "INSERT INTO jouets (nom, prix) VALUES (?,?)";     # Directive sql permettant d'insérer un nouvel élément dans la table "jouets" de la base de données.
+        $stmt= $db->prepare($sql);
+        $stmt->bind_param("si", $nom, $prix);                     # Le premier paramètre de "bind_param()" ici "si" permet de spécifier le type de chacune des variables(s = string, i = integer).
+        $stmt->execute();					  # Exécution de la dirctive sql.
 
- 	$name = filter_var($_POST["name"], FILTER_SANITIZE_STRING); //set PHP variables like this so we can use them anywhere in code below
+        }
 
- 	if (empty($name)){
- 		die("Please enter your name");
- 	}
+        mysqli_close($db);
 
- 	//Open a new connection to the MySQL server
- 	//see https://www.sanwebe.com/2013/03/basic-php-mysqli-usage for more info
- 	$mysqli = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_database);
+    ?>
 
- 	//Output any connection error
- 	if ($mysqli->connect_error) {
- 		die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
- 	}
+      # Formulaire html d'ajout de jouets dans la base de données.
+      <div style="float:right">
+          <a>Ajouter un élément</a><br><br>
+          <form method="POST">
+              nom:<br>
+              <input type="text" name="nom"><br>
+              prix:<br>
+              <input type="number" name="prix"><br>
+              <br><br>
+              <input type="submit" name="submit" value="Envoyer">
+          </form>
+      </div>
 
- 	$statement = $mysqli->prepare('INSERT INTO todo_list (content) VALUES(?)'); //prepare sql insert query
- 	//bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
- 	$statement->bind_param('s', $name); //bind values and execute insert query
+  </body>
 
- 	if($statement->execute()){
- 		print "success";
- 	}else{
- 		print $mysqli->error; //show mysql error if any
- 	}
- }
- ?>
+</html>
