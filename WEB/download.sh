@@ -6,3 +6,5 @@ curl -o index.html https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-
 curl -o index.php https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/WEB/woody-toys-b2b/index.php
 
 curl -o nginx.conf https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/WEB/nginx.conf
+
+curl -o Dockerfile https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/WEB/Dockerfile
