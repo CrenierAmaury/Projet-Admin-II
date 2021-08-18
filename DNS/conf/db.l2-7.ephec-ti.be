@@ -1,10 +1,10 @@
 $TTL	604800
 @	IN	SOA	ns.l2-7.ephec-ti.be. admin.l2-7.ephec-ti.be. (
-		 	        3	; Serial
-			 604800		; Refresh
-			  86400		; Retry
-			2419200		; Expire
-			  604800 )	; Negative Cache TTL
+		 	2021220295	; Serial
+			   3600		; Refresh
+			    600		; Retry
+			1209700		; Expire
+			   600 )	; Negative Cache TTL
 ;
 @		        IN	   NS		       ns.l2-7.ephec-ti.be.
 @               IN     MX      10      mail.l2-7.ephec-ti.be.
