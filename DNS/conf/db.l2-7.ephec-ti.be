@@ -1,4 +1,5 @@
-$TTL	604800
+$ORIGIN l2-7.ephec-ti.be.
+$TTL	3600
 @	IN	SOA	ns.l2-7.ephec-ti.be. admin.l2-7.ephec-ti.be. (
 		 	2021022295	; Serial
 			   3600		; Refresh
@@ -6,9 +7,9 @@ $TTL	604800
 			1209700		; Expire
 			   600 )	; Negative Cache TTL
 ;
-l2-7.ephec-ti.be.  IN	  NS		      ns.l2-7.ephec-ti.be.
-@                  IN     MX      10      mail.l2-7.ephec-ti.be.
-@                  IN     TXT             "v=spf1 a mx ip4:51.210.42.26 ~all"
+@		        IN	   NS		       ns.l2-7.ephec-ti.be.
+@               IN     MX      10      mail.l2-7.ephec-ti.be.
+@               IN     TXT             "v=spf1 a mx ip4:51.210.42.26 ~all"
 
 @               IN	   A	           135.125.101.233
 ns	            IN	   A	           135.125.101.233
