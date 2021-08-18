@@ -1,4 +1,7 @@
-FROM store/internetsystemsconsortium/bind9:9.16
+FROM ubuntu:bionic
 
-RUN apt-get -y update
-RUN chmod g+x /etc/bind /var/cache/bind
+RUN apt update && apt upgrade -y
+RUN apt install bind9 bind9utils -y
+RUN apt install dnsutils -y
+
+CMD named -f
