@@ -1,13 +1,11 @@
 options {
     directory "/var/cache/bind";
 
-    listen-on {
+    listen-on port 53 {
         any;
     };
 
-    allow-recursion {
-        none;
-    };
+    recursion no;
 
     allow-transfer {
         51.210.42.26;
@@ -16,4 +14,11 @@ options {
     allow-update {
         none;
     };
+
+    additional-from-cache no;
+    additional-from-auth no;
+
+    dnssec-enable yes;
+    dnssec-validation yes;
+    dnssec-lookaside auto;
 };
