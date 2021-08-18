@@ -1,4 +1,5 @@
 zone "l2-7.ephec-ti.be" {
-    type master;
+    type primary;
     file "/etc/bind/db.l2-7.ephec-ti.be";
+    notify explicit;
 };

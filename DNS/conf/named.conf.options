@@ -5,8 +5,16 @@ options {
         any;
     };
 
+    allow-recursion {
+        none;
+    };
+
     allow-transfer {
         51.210.42.26;
+    };
+
+    allow-update {
+        none;
     };
 
     forwarders {

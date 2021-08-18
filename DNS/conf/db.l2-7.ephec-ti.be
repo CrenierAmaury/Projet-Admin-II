@@ -10,6 +10,7 @@ $TTL	604800
 @               IN     MX      10      mail.l2-7.ephec-ti.be.
 @               IN     TXT             "v=spf1 a mx ip4:51.210.42.26 ~all"
 
+@               IN	   A	           135.125.101.233
 ns	            IN	   A	           135.125.101.233
 www             IN     A               135.125.101.233
 b2b             IN     A               135.125.101.233
