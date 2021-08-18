@@ -1,7 +1,9 @@
-FROM ubuntu:bionic
+FROM ubuntu:latest
 
-RUN apt update && apt upgrade -y
-RUN apt install bind9 bind9utils -y
-RUN apt install dnsutils -y
+RUN apt-get update && apt-get install -y bind9
 
-CMD named -f
+WORKDIR /etc/bind
+
+VOLUME /etc/bind
+
+CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
