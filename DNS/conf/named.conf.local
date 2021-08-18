@@ -1,7 +1,6 @@
 zone "l2-7.ephec-ti.be" {
     type master;
-    dnssec-policy default;
-    file "/etc/bind/db.l2-7.ephec-ti.be";
+    file "/etc/bind/db.l2-7.ephec-ti.be.signed";
     allow-transfer { 51.210.42.26; };
     allow-update { none; };
 };
