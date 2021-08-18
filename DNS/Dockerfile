@@ -1,5 +1,11 @@
-FROM store/internetsystemsconsortium/bind9:9.16
+FROM ubuntu:latest
 
-RUN apt-get -y update
+RUN apt-get update && apt-get install -y bind9
 
-CMD chmod 777 /etc/bind /var/cache/bind
+WORKDIR /etc/bind
+
+RUN chmod -R a+x /etc/bind
+
+VOLUME /etc/bind
+
+CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
