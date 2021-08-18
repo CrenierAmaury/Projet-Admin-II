@@ -6,6 +6,4 @@ options {
     };
 
     recursion no;
-
-    dnssec-enable yes;
 };
