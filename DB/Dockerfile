@@ -1,3 +1,7 @@
 FROM mysql:latest
 
-RUN apt-get -y update
+RUN apt update && apt upgrade -y
+
+WORKDIR /etc/
+
+COPY test.sql /etc/
