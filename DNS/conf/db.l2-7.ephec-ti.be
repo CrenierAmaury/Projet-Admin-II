@@ -1,6 +1,6 @@
 $TTL	604800
 @	IN	SOA	ns.l2-7.ephec-ti.be. admin.l2-7.ephec-ti.be. (
-		 	2021220295	; Serial
+		 	2021022295	; Serial
 			   3600		; Refresh
 			    600		; Retry
 			1209700		; Expire
