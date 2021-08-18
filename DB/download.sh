@@ -1,7 +1,5 @@
 #!/bin/sh
 
-mkdir scripts
+curl -o test.sql https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/DB/test.sql
 
-curl -o docker-compose.yml https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/DB/docker-compose.yml
-
-curl -o scripts/test.sql https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/DB/test.sql
+curl -o Dockerfile https://raw.githubusercontent.com/CrenierAmaury/Projet-Admin-II/main/DB/Dockerfile

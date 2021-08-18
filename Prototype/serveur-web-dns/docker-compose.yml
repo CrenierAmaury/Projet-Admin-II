@@ -8,11 +8,6 @@ services:
     ports:
       - "53:53/tcp"
       - "53:53/udp"
-    volumes:
-      - ./dns/conf/named.conf:/etc/bind/named.conf
-      - ./dns/conf/named.conf.options:/etc/bind/named.conf.options
-      - ./dns/conf/named.conf.local:/etc/bind/named.conf.local
-      - ./dns/conf/db.l2-7.ephec-ti.be:/etc/bind/db.l2-7.ephec-ti.be
 
   web:
     image: he201706/web:latest
@@ -20,24 +15,16 @@ services:
     restart: always
     ports:
       - "80:80"
-    volumes:
-      - ./web/sites/www/index.html:/usr/share/nginx/html/www/index.html
-      - ./web/sites/b2b/index.php:/usr/share/nginx/html/b2b/index.php
-      - ./web/sites/nginx.conf:/etc/nginx/nginx.conf
 
   php:
     image: he201706/php:latest
     container_name: php
     volumes:
-      - ./web/sites/b2b/index.php:/usr/share/nginx/html/b2b/index.php
+      - ./web/index.php:/usr/share/nginx/html/b2b/index.php
 
   db:
-    image: mysql
+    image: he201706/db:latest
     container_name: db
     restart: always
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD: user1234
-    volumes:
-      - ./db/scripts/test.sql:/test.sql
+    ports:
+      - "3306:3306"
