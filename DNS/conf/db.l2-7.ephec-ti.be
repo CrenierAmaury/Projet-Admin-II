@@ -12,9 +12,13 @@ $TTL	3600
 @               IN     TXT             "v=spf1 a mx ip4:51.210.42.26 ~all"
 
 @               IN	   A	           135.125.101.233
+@               IN     AAAA            fe80::f816:3eff:fe76:b26a
 ns	            IN	   A	           135.125.101.233
+                IN     AAAA            fe80::f816:3eff:fe76:b26a
 www             IN     A               135.125.101.233
+                IN     AAAA            fe80::f816:3eff:fe76:b26a
 b2b             IN     A               135.125.101.233
+                IN     AAAA            fe80::f816:3eff:fe76:b26a
 
 
 mail            IN     A               51.210.42.26
