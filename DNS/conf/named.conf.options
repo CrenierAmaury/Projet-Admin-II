@@ -16,8 +16,4 @@ options {
     allow-update {
         none;
     };
-
-    forwarders {
-        0.0.0.0;
-    };
 };
