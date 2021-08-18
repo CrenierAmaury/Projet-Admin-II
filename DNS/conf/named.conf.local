@@ -1,5 +1,6 @@
 zone "l2-7.ephec-ti.be" {
     type master;
     file "/etc/bind/db.l2-7.ephec-ti.be.signed";
-    notify explicit;
+    allow-transfer { 51.210.42.26; };
+    allow-update { none; };
 };

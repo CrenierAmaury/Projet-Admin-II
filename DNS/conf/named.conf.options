@@ -7,14 +7,6 @@ options {
 
     recursion no;
 
-    allow-transfer {
-        51.210.42.26;
-    };
-
-    allow-update {
-        none;
-    };
-
     additional-from-cache no;
     additional-from-auth no;
 
