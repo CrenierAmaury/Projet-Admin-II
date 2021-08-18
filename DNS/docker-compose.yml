@@ -15,4 +15,4 @@ services:
       - ./conf/named.conf.options:/etc/bind/named.conf.options
       - ./conf/named.conf.local:/etc/bind/named.conf.local
       - ./conf/db.l2-7.ephec-ti.be:/etc/bind/db.l2-7.ephec-ti.be
-      - ./conf/dnssec_key.sh:/etc/bind/dnssec_key.sh
+      - ./conf/dnssec_key.sh:/etc/bind/

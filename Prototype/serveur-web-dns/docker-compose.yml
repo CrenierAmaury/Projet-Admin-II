@@ -15,7 +15,7 @@ services:
       - ./dns/conf/named.conf.options:/etc/bind/named.conf.options
       - ./dns/conf/named.conf.local:/etc/bind/named.conf.local
       - ./dns/conf/db.l2-7.ephec-ti.be:/etc/bind/db.l2-7.ephec-ti.be
-      - ./conf/dnssec_key.sh:/etc/bind/dnssec_key.sh
+      - ./conf/dnssec_key.sh:/etc/bind/
 
   web:
     image: he201706/web:latest
