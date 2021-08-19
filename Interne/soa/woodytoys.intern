@@ -1,0 +1,13 @@
+$ORIGIN woodytoys.intern.
+$TTL	3600
+@	IN	SOA	ns.woodytoys.intern. admin.woodytoys.intern. (
+		 	2021022295	; Serial
+			   3600		; Refresh
+			    600		; Retry
+			1209700		; Expire
+			   600 )	; Negative Cache TTL
+;
+@	        IN     NS	      ns.woodytoys.intern.
+ns              IN     A              172.16.4.2
+
+resolv          IN     A              172.16.4.3

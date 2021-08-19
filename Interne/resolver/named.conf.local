@@ -1,0 +1,17 @@
+zone "l2-7.ephec-ti.be" {
+    type forward;
+    forwarders { 135.125.101.233; };
+    forward only;
+};
+
+zone "woodytoys.intern" {                                                                                                                                                              
+     type forward;                                                                                                                                                           
+     forwarders { 172.16.4.2; };                                                                                                                                            
+     forward only;                                                                                                                                                           
+}; 
+
+zone "0.16.172.in-addr.arpa" IN {
+     type forward;
+     forwarders { 172.16.4.2; };
+     forward only;
+};

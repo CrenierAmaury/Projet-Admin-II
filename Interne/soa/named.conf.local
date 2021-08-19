@@ -1,0 +1,5 @@
+zone "woodytoys.intern" {
+    type master;
+    dnssec-policy default;
+    file "/etc/bind/woodytoys.intern";
+};
