@@ -14,6 +14,12 @@ RUN apt-get install -y curl
 
 RUN apt-get update
 
+# Pour le DNS
+RUN apt-get install -y dnsutils
+
+# Pour le Web
+RUN apt-get install -y lynx
+
 # Mut pour le Mail
 RUN apt-get install -y \
     msmtp \
